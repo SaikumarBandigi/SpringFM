@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!--    <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>-->
+
+    <!--    <context:component-scan base-package="com.javatpoint"></context:component-scan>-->
+
+
+    <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+        <property name="url" value="jdbc:postgresql://localhost:5432/telusko"/>
+        <property name="username" value="postgres"/>
+        <property name="password" value="1234"/>
+    </bean>
+
+
+    <!--    <bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+    <!--        <property name="dataSource" ref="ds"></property>-->
+    <!--    </bean>-->
+
+
+    <!--    <bean id="edao" class="com.javatpoint.EmployeeDao">-->
+    <!--        <property name="JdbcTemplate" ref="JdbcTemplate"></property>-->
+    <!--    </bean>-->
+
+    <context:component-scan base-package="com.javatpoint"></context:component-scan>
+
+
+<!--    <bean id="sonu" class="com.javatpoint.Sonu"></bean>-->
+    <bean id="prashu" class="com.javatpoint.Prashu"></bean>
+
+    <bean id="r" class="com.javatpoint.Raju">
+        <property name="Prashu" ref="prashu"></property>
+    </bean>
+
+
+</beans>
